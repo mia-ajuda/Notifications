@@ -8,12 +8,23 @@ import {
 import Login from './screens/Login';
 import NotificationSender from './screens/NotificationSender';
 
+function isValid() {
+    const token = localStorage.getItem("accessToken");
+    const email = localStorage.getItem("userEmail");
+
+    const validEmails = process.env.REACT_APP_validEmails.split(' ');
+    console.log(validEmails);
+    console.log(email)
+    console.log(validEmails.includes(email))
+    return token && validEmails.includes(email);
+}
+
 function PrivateRoute({ component: Component, ...rest}) {
     return (
         <Route
             {...rest}
             render={(props) =>
-                true ? (
+                isValid() ? (
                     <Component {...props} />
                 ) : (
                     <Redirect to={{ pathname: "/" }} />
