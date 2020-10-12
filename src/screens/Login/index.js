@@ -9,6 +9,7 @@ const config = {
     projectId: process.env.REACT_APP_projectId,
     appID: process.env.REACT_APP_appID,
 }
+
 firebase.initializeApp(config)
 const auth = firebase.auth;
 
