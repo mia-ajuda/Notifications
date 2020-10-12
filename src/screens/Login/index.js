@@ -15,6 +15,7 @@ const auth = firebase.auth;
 export default function Login({ history }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
 
     async function handleLogin(event) {
         event.preventDefault();
@@ -22,7 +23,8 @@ export default function Login({ history }) {
             await auth().signInWithEmailAndPassword(email, password);
             await getUser();
         } catch (error) {
-            console.log(error);
+            setError(error.message);
+            console.error(error);
         }
     }
 
@@ -39,17 +41,16 @@ export default function Login({ history }) {
     }
 
     return (
-        <div>
-            <section>
-                <h1>Login</h1>
-                <form onSubmit={handleLogin}>
-                    <label>Email</label>
-                    <input type="text" id="email" value={email} onChange={event => setEmail(event.target.value)} />
-                    <label>Senha</label>
-                    <input type="password" id="password" value={password} onChange={event => setPassword(event.target.value)} />
-                    <input type="submit" value="Login" />
-                </form>
-            </section>
-        </div>
+        <section className="card-section">
+            <h1>Login</h1>
+            <form className="login-form" onSubmit={handleLogin}>
+                <label>Email</label>
+                <input type="text" id="email" value={email} onChange={event => setEmail(event.target.value)} />
+                <label>Senha</label>
+                <input type="password" id="password" value={password} onChange={event => setPassword(event.target.value)} />
+                <input type="submit" value="Login" />
+                { error.length > 0 && <p className="error">{error}</p>}
+            </form>
+        </section>
     )
 }

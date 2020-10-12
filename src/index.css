@@ -1,13 +1,78 @@
 body {
+  background-color: #4B8AB9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  min-width: 100vw;
+  max-height: 100vh;
+  max-width: 100vw;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.card-section {
+  background-color: #fff;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 64px;
+  width: 20%;
+  min-width: 300px;
+}
+
+.card-section h1 {
+  text-align: center;
+  font-size: 32px;
+  color: #4B8AB9;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  width: 100%;
+  padding: 12px 20px;
+  display: inline-block;
+  border: 2px solid #4B8AB9;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  transition: all .2s;
+}
+
+label {
+  color: #4B8AB9;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
+input:focus {
+  outline: none;
+}
+
+input[type=submit] {
+  background-color: #4B8AB9;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+}
+
+input[type=submit]:hover {
+  cursor: pointer;
+  transform: scale(1.02);
+}
+
+.error {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #E37171;
+  text-align: center;
 }

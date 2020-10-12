@@ -13,9 +13,7 @@ function isValid() {
     const email = localStorage.getItem("userEmail");
 
     const validEmails = process.env.REACT_APP_validEmails.split(' ');
-    console.log(validEmails);
-    console.log(email)
-    console.log(validEmails.includes(email))
+    
     return token && validEmails.includes(email);
 }
 
